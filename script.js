@@ -1,5 +1,5 @@
 /* =====================================================
-   AEROBOT V2
+   AEROBOT
    Captación y cualificación de leads de aerotermia
 ===================================================== */
 
@@ -9,7 +9,7 @@
 ===================================================== */
 
 const WEBHOOK_URL =
-      "https://script.google.com/macros/s/AKfycbwwMtlPDA1Qol1K2NaTlIapXNEFwL81bgdZ90LuHwuB6egsQuo4pdJ1rGrtWncujcK6/exec";
+  "https://script.google.com/macros/s/AKfycbwwMtlPDA1Qol1K2NaTlIapXNEFwL81bgdZ90LuHwuB6egsQuo4pdJ1rGrtWncujcK6/exec";
 
 
 /* =====================================================
@@ -17,23 +17,14 @@ const WEBHOOK_URL =
 ===================================================== */
 
 const lead = {
-
   objetivo: "",
-
   ubicacion: "",
-
   vivienda: "",
-
   metros: "",
-
   sistema: "",
-
   plazo: "",
-
   nombre: "",
-
   telefono: ""
-
 };
 
 
@@ -44,10 +35,8 @@ const lead = {
 const chat =
   document.getElementById("chat");
 
-
 const progress =
   document.getElementById("progress");
-
 
 let step = 0;
 
@@ -130,10 +119,7 @@ function updateProgress() {
    BOTONES DE OPCIONES
 ===================================================== */
 
-function addOptions(
-  options,
-  callback
-) {
+function addOptions(options, callback) {
 
   const container =
     document.createElement("div");
@@ -156,7 +142,7 @@ function addOptions(
 
     button.addEventListener(
       "click",
-      function() {
+      function () {
 
         container.remove();
 
@@ -259,7 +245,7 @@ function addInput(
 
   input.addEventListener(
     "keydown",
-    function(event) {
+    function (event) {
 
       if (
         event.key === "Enter"
@@ -305,12 +291,12 @@ function nextStep() {
   updateProgress();
 
 
-  switch(step) {
+  switch (step) {
 
 
-    /* -----------------------------------------------
+    /* =================================================
        OBJETIVO
-    ----------------------------------------------- */
+    ================================================= */
 
     case 1:
 
@@ -329,7 +315,6 @@ function nextStep() {
             "Instalar desde cero"
         },
 
-
         {
           label:
             "♨️ Sustituir mi sistema actual",
@@ -337,7 +322,6 @@ function nextStep() {
           value:
             "Sustituir sistema actual"
         },
-
 
         {
           label:
@@ -347,7 +331,7 @@ function nextStep() {
             "Informarme"
         }
 
-      ], function(value) {
+      ], function (value) {
 
         lead.objetivo =
           value;
@@ -359,9 +343,9 @@ function nextStep() {
       break;
 
 
-    /* -----------------------------------------------
+    /* =================================================
        UBICACIÓN
-    ----------------------------------------------- */
+    ================================================= */
 
     case 2:
 
@@ -372,7 +356,7 @@ function nextStep() {
 
       addInput(
         "Ej. Pozuelo de Alarcón",
-        function(value) {
+        function (value) {
 
           lead.ubicacion =
             value;
@@ -385,9 +369,9 @@ function nextStep() {
       break;
 
 
-    /* -----------------------------------------------
+    /* =================================================
        VIVIENDA
-    ----------------------------------------------- */
+    ================================================= */
 
     case 3:
 
@@ -406,7 +390,6 @@ function nextStep() {
             "Chalet"
         },
 
-
         {
           label:
             "🏘️ Adosado",
@@ -414,7 +397,6 @@ function nextStep() {
           value:
             "Adosado"
         },
-
 
         {
           label:
@@ -424,7 +406,6 @@ function nextStep() {
             "Piso"
         },
 
-
         {
           label:
             "🏠 Otro tipo",
@@ -433,7 +414,7 @@ function nextStep() {
             "Otro"
         }
 
-      ], function(value) {
+      ], function (value) {
 
         lead.vivienda =
           value;
@@ -445,9 +426,9 @@ function nextStep() {
       break;
 
 
-    /* -----------------------------------------------
+    /* =================================================
        SUPERFICIE
-    ----------------------------------------------- */
+    ================================================= */
 
     case 4:
 
@@ -466,7 +447,6 @@ function nextStep() {
             "<80 m²"
         },
 
-
         {
           label:
             "80–120 m²",
@@ -474,7 +454,6 @@ function nextStep() {
           value:
             "80–120 m²"
         },
-
 
         {
           label:
@@ -484,7 +463,6 @@ function nextStep() {
             "120–180 m²"
         },
 
-
         {
           label:
             "180–250 m²",
@@ -492,7 +470,6 @@ function nextStep() {
           value:
             "180–250 m²"
         },
-
 
         {
           label:
@@ -502,7 +479,7 @@ function nextStep() {
             ">250 m²"
         }
 
-      ], function(value) {
+      ], function (value) {
 
         lead.metros =
           value;
@@ -514,9 +491,9 @@ function nextStep() {
       break;
 
 
-    /* -----------------------------------------------
+    /* =================================================
        SISTEMA ACTUAL
-    ----------------------------------------------- */
+    ================================================= */
 
     case 5:
 
@@ -535,7 +512,6 @@ function nextStep() {
             "Gas"
         },
 
-
         {
           label:
             "🛢️ Gasóleo",
@@ -543,7 +519,6 @@ function nextStep() {
           value:
             "Gasóleo"
         },
-
 
         {
           label:
@@ -553,7 +528,6 @@ function nextStep() {
             "Eléctrica"
         },
 
-
         {
           label:
             "❌ No tengo calefacción",
@@ -561,7 +535,6 @@ function nextStep() {
           value:
             "Sin calefacción"
         },
-
 
         {
           label:
@@ -571,7 +544,7 @@ function nextStep() {
             "Otro"
         }
 
-      ], function(value) {
+      ], function (value) {
 
         lead.sistema =
           value;
@@ -583,9 +556,9 @@ function nextStep() {
       break;
 
 
-    /* -----------------------------------------------
+    /* =================================================
        PLAZO
-    ----------------------------------------------- */
+    ================================================= */
 
     case 6:
 
@@ -604,7 +577,6 @@ function nextStep() {
             "Lo antes posible"
         },
 
-
         {
           label:
             "📅 En 1–3 meses",
@@ -612,7 +584,6 @@ function nextStep() {
           value:
             "1–3 meses"
         },
-
 
         {
           label:
@@ -622,7 +593,6 @@ function nextStep() {
             "3–6 meses"
         },
 
-
         {
           label:
             "🔎 Solo estoy informándome",
@@ -631,7 +601,7 @@ function nextStep() {
             "Informándome"
         }
 
-      ], function(value) {
+      ], function (value) {
 
         lead.plazo =
           value;
@@ -643,9 +613,9 @@ function nextStep() {
       break;
 
 
-    /* -----------------------------------------------
+    /* =================================================
        CONTACTO
-    ----------------------------------------------- */
+    ================================================= */
 
     case 7:
 
@@ -656,7 +626,7 @@ function nextStep() {
 
       addInput(
         "Tu nombre",
-        function(value) {
+        function (value) {
 
           lead.nombre =
             value;
@@ -686,7 +656,7 @@ function askPhone() {
 
   addInput(
     "Ej. 612 345 678",
-    function(value) {
+    function (value) {
 
       lead.telefono =
         value;
@@ -701,15 +671,13 @@ function askPhone() {
 
 
 /* =====================================================
-   SCORE
+   SCORE INTERNO
 ===================================================== */
 
 function calculateScore() {
 
   let score = 0;
 
-
-  /* Necesidad */
 
   if (
     lead.objetivo === "Instalar desde cero" ||
@@ -720,8 +688,6 @@ function calculateScore() {
 
   }
 
-
-  /* Tamaño */
 
   if (
     lead.metros === "120–180 m²" ||
@@ -734,8 +700,6 @@ function calculateScore() {
   }
 
 
-  /* Urgencia */
-
   if (
     lead.plazo === "Lo antes posible" ||
     lead.plazo === "1–3 meses"
@@ -745,8 +709,6 @@ function calculateScore() {
 
   }
 
-
-  /* Sistema sustituible */
 
   if (
     lead.sistema === "Gas" ||
@@ -758,30 +720,30 @@ function calculateScore() {
   }
 
 
-  /* Clasificación INTERNA */
-
-  let label = "🔵 Lead informativo";
+  let prioridad =
+    "🔵 Lead informativo";
 
 
   if (score >= 7) {
 
-    label = "🔥 Lead caliente";
+    prioridad =
+      "🔥 Lead caliente";
 
   } else if (score >= 4) {
 
-    label = "🟡 Lead templado";
+    prioridad =
+      "🟡 Lead templado";
 
   }
 
 
   return {
-
     value: score,
-    label: label
-
+    label: prioridad
   };
 
 }
+
 
 /* =====================================================
    ENVIAR A GOOGLE SHEETS
@@ -791,9 +753,7 @@ function sendLead(score) {
 
   if (
     !WEBHOOK_URL ||
-    WEBHOOK_URL.includes(
-      "pega aqui"
-    )
+    WEBHOOK_URL.includes("TU_WEBHOOK_URL")
   ) {
 
     console.warn(
@@ -847,24 +807,23 @@ function sendLead(score) {
             lead.plazo,
 
           score:
-  score.value,
+            score.value,
 
-prioridad:
-  score.label
+          prioridad:
+            score.label
 
         })
 
     }
-
   )
-  .then(function() {
+  .then(function () {
 
     console.log(
       "Lead enviado correctamente."
     );
 
   })
-  .catch(function(error) {
+  .catch(function (error) {
 
     console.error(
       "Error enviando lead:",
@@ -877,7 +836,7 @@ prioridad:
 
 
 /* =====================================================
-   RESULTADO
+   RESULTADO FINAL
 ===================================================== */
 
 function finish() {
@@ -891,19 +850,13 @@ function finish() {
     calculateScore();
 
 
-  /* ENVIAMOS EL LEAD */
-
   sendLead(score);
 
-
-  /* MENSAJE */
 
   addBotMessage(
     `¡Perfecto, ${lead.nombre}! Hemos recibido tu solicitud.`
   );
 
-
-  /* RESULTADO */
 
   const result =
     document.createElement("div");
@@ -918,26 +871,21 @@ function finish() {
       ✅
     </div>
 
-
     <h2>
       Solicitud recibida
     </h2>
 
-
     <p>
-
       Con los datos que nos has dado,
       podemos estudiar si una instalación
       de aerotermia puede encajar en tu vivienda.
 
       Un especialista revisará tu solicitud
       y contactará contigo.
-
     </p>
 
 
     <div class="lead-summary">
-
 
       <div class="summary-row">
 
@@ -1003,7 +951,6 @@ function finish() {
 
       </div>
 
-
     </div>
 
   `;
@@ -1022,10 +969,10 @@ function finish() {
     {
       ...lead,
       score:
-  score.value,
+        score.value,
 
-prioridad:
-  score.label
+      prioridad:
+        score.label
     }
   );
 
@@ -1043,6 +990,7 @@ addBotMessage(
 
 const welcome =
   document.createElement("div");
+
 
 welcome.className =
   "welcome";
@@ -1087,7 +1035,7 @@ addOptions([
 
   }
 
-], function() {
+], function () {
 
   nextStep();
 
