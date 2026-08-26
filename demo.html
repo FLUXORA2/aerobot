@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>AeroClima — Aerotermia eficiente</title>
+
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    body {
+      margin: 0;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      color: #172033;
+      background: #ffffff;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding: 20px 7%;
+
+      border-bottom:
+        1px solid #eeeeee;
+
+      background: white;
+
+    }
+
+
+    .logo {
+
+      font-size: 24px;
+
+      font-weight: 800;
+
+      letter-spacing: -0.5px;
+
+    }
+
+
+    .logo span {
+
+      color: #2563eb;
+
+    }
+
+
+    nav {
+
+      display: flex;
+
+      gap: 30px;
+
+      color: #555;
+
+      font-size: 15px;
+
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+
+      min-height:
+        620px;
+
+      display: flex;
+
+      align-items: center;
+
+      padding:
+        70px 7%;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f5f9ff 0%,
+          #ffffff 60%
+        );
+
+    }
+
+
+    .hero-content {
+
+      max-width:
+        680px;
+
+    }
+
+
+    .badge {
+
+      display: inline-block;
+
+      padding:
+        8px 14px;
+
+      border-radius:
+        999px;
+
+      background:
+        #e8f1ff;
+
+      color:
+        #2563eb;
+
+      font-size:
+        14px;
+
+      font-weight:
+        600;
+
+      margin-bottom:
+        20px;
+
+    }
+
+
+    h1 {
+
+      margin:
+        0 0 20px;
+
+      font-size:
+        clamp(42px, 6vw, 72px);
+
+      line-height:
+        1.05;
+
+      letter-spacing:
+        -2px;
+
+    }
+
+
+    .hero p {
+
+      margin:
+        0 0 30px;
+
+      font-size:
+        20px;
+
+      line-height:
+        1.6;
+
+      color:
+        #5b6475;
+
+      max-width:
+        600px;
+
+    }
+
+
+    .cta {
+
+      display:
+        inline-block;
+
+      padding:
+        16px 25px;
+
+      border-radius:
+        10px;
+
+      background:
+        #2563eb;
+
+      color:
+        white;
+
+      text-decoration:
+        none;
+
+      font-weight:
+        700;
+
+      box-shadow:
+        0 8px 20px
+        rgba(37, 99, 235, .20);
+
+    }
+
+
+    /* =========================
+       BENEFICIOS
+    ========================= */
+
+    .benefits {
+
+      padding:
+        80px 7%;
+
+      background:
+        #ffffff;
+
+    }
+
+
+    .section-title {
+
+      text-align:
+        center;
+
+      font-size:
+        38px;
+
+      margin:
+        0 0 50px;
+
+    }
+
+
+    .cards {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        25px;
+
+      max-width:
+        1100px;
+
+      margin:
+        0 auto;
+
+    }
+
+
+    .card {
+
+      padding:
+        30px;
+
+      border:
+        1px solid #eeeeee;
+
+      border-radius:
+        18px;
+
+      background:
+        #ffffff;
+
+    }
+
+
+    .card-icon {
+
+      font-size:
+        35px;
+
+      margin-bottom:
+        15px;
+
+    }
+
+
+    .card h3 {
+
+      margin:
+        0 0 10px;
+
+      font-size:
+        21px;
+
+    }
+
+
+    .card p {
+
+      margin:
+        0;
+
+      color:
+        #667085;
+
+      line-height:
+        1.6;
+
+    }
+
+
+    /* =========================
+       CTA FINAL
+    ========================= */
+
+    .final-cta {
+
+      padding:
+        90px 7%;
+
+      text-align:
+        center;
+
+      background:
+        #f5f9ff;
+
+    }
+
+
+    .final-cta h2 {
+
+      margin:
+        0 0 15px;
+
+      font-size:
+        40px;
+
+    }
+
+
+    .final-cta p {
+
+      color:
+        #667085;
+
+      margin:
+        0 0 25px;
+
+      font-size:
+        18px;
+
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+
+      padding:
+        30px 7%;
+
+      text-align:
+        center;
+
+      color:
+        #888;
+
+      font-size:
+        14px;
+
+    }
+
+
+    /* =========================
+       MÓVIL
+    ========================= */
+
+    @media (max-width: 700px) {
+
+      nav {
+
+        display:
+          none;
+
+      }
+
+
+      .hero {
+
+        min-height:
+          560px;
+
+        padding:
+          60px 6%;
+
+      }
+
+
+      .cards {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .section-title {
+
+        font-size:
+          32px;
+
+      }
+
+
+      .final-cta h2 {
+
+        font-size:
+          32px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header>
+
+    <div class="logo">
+
+      Aero<span>Clima</span>
+
+    </div>
+
+
+    <nav>
+
+      <div>
+        Aerotermia
+      </div>
+
+      <div>
+        Ventajas
+      </div>
+
+      <div>
+        Contacto
+      </div>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+
+      <div class="badge">
+
+        Soluciones de climatización eficiente
+
+      </div>
+
+
+      <h1>
+
+        Más confort.
+        Menos consumo.
+
+      </h1>
+
+
+      <p>
+
+        Descubre cómo la aerotermia puede
+        ayudarte a climatizar tu vivienda
+        de forma eficiente y sostenible.
+
+      </p>
+
+
+      <a
+        href="#"
+        class="cta"
+        onclick="return false;"
+      >
+
+        Solicitar presupuesto
+
+      </a>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       BENEFICIOS
+  ========================= -->
+
+  <section class="benefits">
+
+
+    <h2 class="section-title">
+
+      ¿Por qué aerotermia?
+
+    </h2>
+
+
+    <div class="cards">
+
+
+      <div class="card">
+
+        <div class="card-icon">
+          💶
+        </div>
+
+        <h3>
+          Reduce tu consumo
+        </h3>
+
+        <p>
+          Una solución eficiente para
+          reducir el gasto energético
+          de tu vivienda.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">
+          🌡️
+        </div>
+
+        <h3>
+          Confort todo el año
+        </h3>
+
+        <p>
+          Calefacción, refrigeración
+          y agua caliente en un único
+          sistema.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">
+          🌱
+        </div>
+
+        <h3>
+          Energía eficiente
+        </h3>
+
+        <p>
+          Aprovecha la energía del
+          aire para climatizar tu hogar.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       CTA FINAL
+  ========================= -->
+
+  <section class="final-cta">
+
+
+    <h2>
+
+      ¿Quieres saber si encaja
+      en tu vivienda?
+
+    </h2>
+
+
+    <p>
+
+      Habla con nuestro asistente
+      y descubre tus opciones.
+
+    </p>
+
+
+    <a
+      href="#"
+      class="cta"
+      onclick="return false;"
+    >
+
+      Analizar mi vivienda
+
+    </a>
+
+
+  </section>
+
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    © 2026 AeroClima · Soluciones
+    de aerotermia
+
+  </footer>
+
+
+
+  <!-- =========================
+       AEROBOT
+  ========================= -->
+
+  <script src="widget.js"></script>
+
+
+</body>
+
+</html>
