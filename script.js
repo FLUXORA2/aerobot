@@ -726,14 +726,11 @@ function calculateScore() {
 
   if (score >= 7) {
 
-    prioridad =
-      "🔥 Lead caliente";
+    label: "🔥 Cliente potencial"
 
   } else if (score >= 4) {
 
-    prioridad =
-      "🟡 Lead templado";
-
+    label: "🟡 Cliente interesado"
   }
 
 
