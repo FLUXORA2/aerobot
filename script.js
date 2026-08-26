@@ -712,15 +712,8 @@ function calculateScore() {
   /* Necesidad */
 
   if (
-
-    lead.objetivo ===
-      "Instalar desde cero"
-
-    ||
-
-    lead.objetivo ===
-      "Sustituir sistema actual"
-
+    lead.objetivo === "Instalar desde cero" ||
+    lead.objetivo === "Sustituir sistema actual"
   ) {
 
     score += 3;
@@ -731,20 +724,9 @@ function calculateScore() {
   /* Tamaño */
 
   if (
-
-    lead.metros ===
-      "120–180 m²"
-
-    ||
-
-    lead.metros ===
-      "180–250 m²"
-
-    ||
-
-    lead.metros ===
-      ">250 m²"
-
+    lead.metros === "120–180 m²" ||
+    lead.metros === "180–250 m²" ||
+    lead.metros === ">250 m²"
   ) {
 
     score += 2;
@@ -755,15 +737,8 @@ function calculateScore() {
   /* Urgencia */
 
   if (
-
-    lead.plazo ===
-      "Lo antes posible"
-
-    ||
-
-    lead.plazo ===
-      "1–3 meses"
-
+    lead.plazo === "Lo antes posible" ||
+    lead.plazo === "1–3 meses"
   ) {
 
     score += 3;
@@ -774,15 +749,8 @@ function calculateScore() {
   /* Sistema sustituible */
 
   if (
-
-    lead.sistema ===
-      "Gas"
-
-    ||
-
-    lead.sistema ===
-      "Gasóleo"
-
+    lead.sistema === "Gas" ||
+    lead.sistema === "Gasóleo"
   ) {
 
     score += 1;
@@ -790,28 +758,30 @@ function calculateScore() {
   }
 
 
- if (score >= 7) {
+  /* Clasificación INTERNA */
+
+  let label = "🔵 Lead informativo";
+
+
+  if (score >= 7) {
+
+    label = "🔥 Lead caliente";
+
+  } else if (score >= 4) {
+
+    label = "🟡 Lead templado";
+
+  }
+
 
   return {
-    value: score
+
+    value: score,
+    label: label
+
   };
 
 }
-
-if (score >= 4) {
-
-  return {
-    value: score
-  };
-
-}
-
-return {
-
-  value: score
-
-};
-
 
 /* =====================================================
    ENVIAR A GOOGLE SHEETS
@@ -877,7 +847,10 @@ function sendLead(score) {
             lead.plazo,
 
           score:
-            score.label
+  score.value,
+
+prioridad:
+  score.label
 
         })
 
@@ -1033,13 +1006,6 @@ function finish() {
 
     </div>
 
-
-    <div class="score">
-
-      ${score.label}
-
-    </div>
-
   `;
 
 
@@ -1056,7 +1022,10 @@ function finish() {
     {
       ...lead,
       score:
-        score.label
+  score.value,
+
+prioridad:
+  score.label
     }
   );
 
