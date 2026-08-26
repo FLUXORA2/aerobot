@@ -8,16 +8,6 @@
    CONFIGURACIÓN
 ===================================================== */
 
-
-/*
-  PEGA AQUÍ TU URL DE GOOGLE APPS SCRIPT.
-
-  Ejemplo:
-
-  const WEBHOOK_URL =
-    "https://script.google.com/macros/s/XXXXXXXX/exec";
-*/
-
 const WEBHOOK_URL =
       "https://script.google.com/macros/s/AKfycbwwMtlPDA1Qol1K2NaTlIapXNEFwL81bgdZ90LuHwuB6egsQuo4pdJ1rGrtWncujcK6/exec";
 
@@ -800,43 +790,27 @@ function calculateScore() {
   }
 
 
-  if (score >= 7) {
-
-    return {
-      label:
-        "🔥 Lead caliente",
-
-      value:
-        score
-    };
-
-  }
-
-
-  if (score >= 4) {
-
-    return {
-      label:
-        "🟡 Lead templado",
-
-      value:
-        score
-    };
-
-  }
-
+ if (score >= 7) {
 
   return {
-
-    label:
-      "🔵 Lead informativo",
-
-    value:
-      score
-
+    value: score
   };
 
 }
+
+if (score >= 4) {
+
+  return {
+    value: score
+  };
+
+}
+
+return {
+
+  value: score
+
+};
 
 
 /* =====================================================
